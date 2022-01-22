@@ -15,7 +15,7 @@ class CreateKendaraanTable extends Migration
     {
         Schema::create('kendaraan', function (Blueprint $table) {
             $table->string("plat_nomor")->primary();
-            $table->foreignId('id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->string("jenis_kendaraan");
             $table->string("merk_model");
             $table->timestamps();
