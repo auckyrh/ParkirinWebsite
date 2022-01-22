@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKendaraanTable extends Migration
+class CreateFavoritTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateKendaraanTable extends Migration
      */
     public function up()
     {
-        Schema::create('kendaraan', function (Blueprint $table) {
-            $table->string('plat_nomor')->primary();
+        Schema::create('favorit', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('id_user')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('jenis_kendaraan');
-            $table->string('merk_model');
+            $table->foreignId('id_lokasi')->constrained('lokasi')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateKendaraanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kendaraan');
+        Schema::dropIfExists('favorit');
     }
 }

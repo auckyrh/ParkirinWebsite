@@ -15,16 +15,16 @@ class CreateLokasiTable extends Migration
     {
         Schema::create('lokasi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_pemilik')->constrained('users')->onDelete('cascade');
-            $table->string("nama");
-            $table->string("alamat");
-            $table->string("foto_path");
-            $table->integer("kapasitasmax_mobil");
-            $table->integer("kapasitasmax_motor");
-            $table->double("longitude");
-            $table->double("latitude");
-            $table->integer("biaya_mobil");
-            $table->integer("biaya_motor");
+            $table->foreignId('id_pemilik')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('foto_path');
+            $table->integer('kapasitasmax_mobil')->default(0);
+            $table->integer('kapasitasmax_motor')->default(0);
+            $table->double('longitude');
+            $table->double('latitude');
+            $table->integer('biaya_mobil')->default(0);
+            $table->integer('biaya_motor')->default(0);
             $table->timestamps();
         });
     }
