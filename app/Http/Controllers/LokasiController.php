@@ -74,6 +74,9 @@ class LokasiController extends Controller
         $id_pemilik = Auth::id();
         $nama = $request->input('nama');
         $alamat = $request->input('alamat');
+//        $file = $request->file('AttachmentImage');
+//        $fileName = time().'.'.$file->getClientOriginalExtension();
+//        $file->storeAs('requestdanaimages', $fileName);
         $foto_path = $request->file('foto_path')->store('foto-lokasi');
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
