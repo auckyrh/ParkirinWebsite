@@ -21,8 +21,8 @@ class CreateLokasiTable extends Migration
             $table->string('foto_path');
             $table->integer('kapasitasmax_mobil')->default(0);
             $table->integer('kapasitasmax_motor')->default(0);
-            $table->double('longitude');
-            $table->double('latitude');
+            $table->decimal('longitude', 11, 8);
+            $table->decimal('latitude',10, 8);
             $table->integer('biaya_mobil')->default(0);
             $table->integer('biaya_motor')->default(0);
             $table->timestamps();
